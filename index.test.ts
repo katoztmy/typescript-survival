@@ -23,7 +23,6 @@ test("postExists", async () => {
 
   // コンストラクタを使わない呼び出し方を追加
   const service = new PostService();
-  s;
 
   const result = await service.postExists(1);
   expect(result).toBe(true);
