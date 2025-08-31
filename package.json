@@ -4,7 +4,7 @@
   "description": "TypeScript学習環境",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node index.ts",
+    "start": "ts-node posts.ts",
     "dev": "ts-node --watch",
     "build": "tsc",
     "clean": "rm -rf dist",
