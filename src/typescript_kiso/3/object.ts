@@ -65,3 +65,54 @@ const humanoid: Humanoid = {
 type Humanoids = human & {
   job: string;
 };
+
+// 任意のプロパティ名を許容する型
+type AnyProperty = {
+  [key: string]: number;
+};
+
+// keyがstringでそのvalueがnumberのオブジェクトを生成可能
+const anyPropertyObject: AnyProperty = {
+  cost: 100,
+  price: 200,
+  quantity: 3,
+  total: 400,
+};
+
+const obj5: AnyProperty = {
+  name: 123,
+};
+
+const num = obj5.joh;
+console.log(num);
+
+const obj6: {
+  name: string;
+} = {
+  name: "Tomoya",
+};
+
+const propName: string = "foo";
+const obj7 = {
+  [propName]: 123,
+};
+console.log(obj7.foo);
+
+type MyObj = {
+  foo: boolean;
+  bar: boolean;
+  baz?: number;
+};
+
+const objA: MyObj = {
+  foo: true,
+  bar: true,
+};
+
+const objB: MyObj = {
+  foo: true,
+  bar: true,
+  baz: 1234,
+};
+
+console.log(objA.baz);
