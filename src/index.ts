@@ -1,27 +1,27 @@
-"use strict";
 // class Animal {
 //   name: string;
 // }
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
+
 // class Duck extends Animal {
 //   quack() {
 //     console.log("ガーガー");
 //   }
 // }
+
 // class Dog extends Animal {
 //   bark() {
 //     console.log("わんわん");
 //   }
 // }
+
 // function isDuck(animal: Animal): animal is Duck {
 //   return animal instanceof Duck;
 // }
+
 // // someAnimalはDuckクラスのインスタンスではあるがAnimal型であるとTypeScriptコンパイラは判断する
 // // Animalクラスにはnameプロパティしか存在しないので当然someAnimal.quack()はエラーになる
 // const someAnimal: Animal = new Duck();
+
 // console.log(100 / 0);
 // const text = "I'm fine.\nThank you!";
 // console.log(text);
@@ -33,30 +33,41 @@ Object.defineProperty(exports, "__esModule", { value: true });
 //   age: 30,
 // };
 // console.log(typeof obj);
+
 // let value;
 // console.log(typeof value);
+
 // const char: number = 0..toString()
+
 // const message: string = "Hello, \u{796d}Worlds!";
 // console.log(message);
+
 // const str: string = "3";
 // // @ts-ignore
 // console.log(str == 3);
+
 // 真偽値
-const t = true, f = false;
+const t = true,
+  f = false;
+
 console.log(t && f); // false
 console.log(t || f); // true
+
 const x = 0;
 const y = 1;
 // xがundefinedやnullだったらyを返す,それ以外だったらxを返す
+
 const user = x ?? y;
 console.log(user);
+
 // .envファイルを読み込む
-const dotenv_1 = __importDefault(require("dotenv"));
-dotenv_1.default.config();
+import dotenv from "dotenv";
+dotenv.config();
+
 const secret = process.env.SECRET_PASSWORD || "default_secret";
 console.log(secret);
+
 const ports = process.env.PORTS;
 console.log(typeof ports);
 const port = process.env.PORT;
 console.log(typeof port);
-//# sourceMappingURL=index.js.map
