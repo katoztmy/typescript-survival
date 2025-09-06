@@ -116,3 +116,18 @@ const objB: MyObj = {
 };
 
 console.log(objA.baz);
+
+type MyObj2 = {
+  readonly foo: string;
+};
+
+const objC: MyObj2 = {
+  foo: "u",
+};
+
+// objC.foo = "chin";
+
+type MyObj3 = typeof objC;
+const objD: MyObj3 = {
+  foo: "yas",
+};
