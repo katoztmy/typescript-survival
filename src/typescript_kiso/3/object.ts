@@ -131,3 +131,21 @@ type MyObj3 = typeof objC;
 const objD: MyObj3 = {
   foo: "yas",
 };
+
+const obj11: number[] = [1, 2, 3];
+obj11.push(4);
+
+const obj12 = {
+  name: "Tomoya",
+  age: 33,
+  yeah: "yeah",
+};
+
+for (const key in obj12) {
+  console.log(`${key}: ${obj12[key as keyof typeof obj12]}`);
+}
+
+// const table: [string, number, boolean] = ["Tomoya", 22, false;
+// console.log(table);
+// 配列へのインデックスアクセスは使用しない
+// 存在しない配列のインデックスへもアクセスできてしまうため。undefinedsになるが。
