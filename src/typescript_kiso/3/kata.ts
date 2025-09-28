@@ -1,10 +1,36 @@
-// 引数の型がTで、それを要素に持つ配列を返す関数、もちろん配列の型もT
-// 色々な型に対応できる関数を作るイメージ。
-function rArray<T>(arg: T): T[] {
-  return [arg];
+const fs = require("fs");
+const input = fs.readFileSync("/dev/stdin", "utf8").trim().split("\n");
+
+const [N, H, W] = input[0].split(" ").map(Number);
+const [sy, sx] = input[1].split(" ").map(Number);
+const s = input[2];
+
+const grid = [];
+for (let i = 0; i < H; i++) {
+  grid.push(input[i + 3].split(" ").map(Number));
 }
 
-console.log(rArray<string>("Hello"));
-console.log(rArray<number>(100));
-console.log(rArray<boolean>(true));
-console.log(rArray<object>({ name: "TypeScript" }));
+let y = sy;
+let x = sx;
+const result = [];
+
+for (let i = 0; i < N; i++) {
+  const move = s[i];
+
+  if (move === "F") {
+    y--;
+  } else if (move === "B") {
+    y++;
+  } else if (move === "L") {
+    x--;
+  } else if (move === "R") {
+    x++;
+  }
+
+  const chocolate = grid[y - 1][x - 1];
+  result.push(chocolate);
+}
+
+for (let chocolate of result) {
+  console.log(chocolate);
+}
