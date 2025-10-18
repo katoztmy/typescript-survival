@@ -121,3 +121,54 @@ for (const [key, value] of Object.entries(foo2)) {
 //   console.log(value, key);
 //   // 実際は key value の順で出力される（変数名と実際の内容が逆）
 // }
+
+const foo3 = { a: 1, b: 2, c: 3, d: 4 };
+for (const key of Object.keys(foo3)) {
+  console.log(key);
+}
+
+console.log("\n=== break文の使い方 ===");
+
+// ❌ エラー：if文の中でbreakは使えない
+// if (true) {
+//   console.log("before");
+//   break; // エラー！
+//   console.log("after");
+// }
+
+// ✅ 正しい：ループの中でbreakを使う
+console.log("ループ内でのbreak:");
+for (let i = 0; i < 5; i++) {
+  if (i === 3) {
+    console.log("i=3でループを抜ける");
+    break; // ループを抜ける
+  }
+  console.log(`i = ${i}`);
+}
+
+// ✅ 正しい：switch文の中でbreakを使う
+console.log("\nswitch文内でのbreak:");
+const value = 2;
+switch (value) {
+  case 1:
+    console.log("1です");
+    break;
+  case 2:
+    console.log("2です");
+    break; // 次のcaseに進まないようにする
+  case 3:
+    console.log("3です");
+    break;
+  default:
+    console.log("その他");
+}
+
+// if文で早期リターンしたい場合は、returnを使う（関数内）
+function example() {
+  if (true) {
+    console.log("before");
+    return; // 関数を抜ける
+    console.log("after"); // 実行されない
+  }
+}
+example();
