@@ -149,3 +149,45 @@ for (const key in obj12) {
 // console.log(table);
 // 配列へのインデックスアクセスは使用しない
 // 存在しない配列のインデックスへもアクセスできてしまうため。undefinedsになるが。
+
+// 下記はUTC時間で表示される
+const date = new Date();
+console.log(date);
+console.log(Date.now());
+
+const exp = new RegExp("abcde");
+
+console.log(exp);
+console.log(exp.flags);
+console.log(exp.source);
+
+const mappp: Map<string, number> = new Map();
+mappp.set("a", 1);
+
+const g = mappp.get("a");
+console.log(g);
+mappp.set("aiueo", 999);
+console.log(mappp);
+
+// オブジェクトだとkeyがstringになる。取り出して配列に入れても'1', '2'になる。
+// Mapを使えばkeyは自由な型を使える。
+const rrr = {
+  1: "a",
+  2: "b",
+};
+console.log(rrr);
+
+// hasはMapに引数に入るkeyが存在するかどうかを返す。
+const flags = mappp.has("a");
+console.log(flags);
+console.log(mappp);
+mappp.delete("a");
+console.log(mappp);
+const ggg = new Set<number>();
+ggg.add(1);
+console.log(ggg);
+const hhh = ggg.keys();
+
+const iii = [1, 3, 4, 4564, 43, 1, 3, 1, 45, 7];
+const jjj = new Set(iii);
+console.log(jjj);
