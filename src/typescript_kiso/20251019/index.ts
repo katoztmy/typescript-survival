@@ -114,3 +114,19 @@ const person4: PersonWithBoth2 = { name: "三郎", age: 35 };
 
 console.log("type と interface、どちらも使えるが得意分野が違う！");
 
+type aiueo = string | boolean;
+type kaka = boolean;
+
+interface Store {
+    name: string;
+}
+
+interface Store {
+    address:string
+}
+
+const store: Store = {
+    name: "コンビニ",
+    address: "東京都千代田区永田町1-7-1"
+}
+
