@@ -40,17 +40,17 @@ type InProgress2 = { type: "inProgress"; progress: number };
 type Success2 = { type: "success" };
 type Failure2 = { type: "failure"; error: Error };
 
-function printStatus2(status: UploadStatus2) {
-  if (status.type === "inProgress") {
-    console.log(status.)
-  }
-}
+// function printStatus2(status: UploadStatus2) {
+//   if (status.type === "inProgress") {
+//     console.log(status.)
+//   }
+// }
 
 // インターセクション型
-type rr = string & number; 
+type rr = string & number;
 // これはコンパイルエラーになる、stringでありながらnumberでもある値は存在しない
 // 実は使い道はあるらしいがわからん、詳細は省かれていた
-const nn: rr = "2"
+const nn: rr = "2";
 
 console.log("\n=== 型エイリアス vs インターフェース ===");
 
@@ -118,15 +118,81 @@ type aiueo = string | boolean;
 type kaka = boolean;
 
 interface Store {
-    name: string;
+  name: string;
 }
 
 interface Store {
-    address:string
+  address: string;
 }
 
 const store: Store = {
-    name: "コンビニ",
-    address: "東京都千代田区永田町1-7-1"
+  name: "コンビニ",
+  address: "東京都千代田区永田町1-7-1",
+};
+
+type Store2 = {
+  name: string;
+};
+
+type Store3 = {
+  address: string;
+};
+
+const store2: Store2 & Store3 = {
+  name: "fu8nny",
+  address: "東京都",
+};
+
+type SystemSupportLanguage = "en" | "fr" | "it" | "es";
+type Butterfly = {
+  [key in SystemSupportLanguage]: string;
+};
+
+const yeah: Butterfly = {
+  en: "ya",
+  fr: "a",
+  it: "b",
+  es: "a",
+};
+
+// 型アサーション
+let svalue: string | number = "this is a string";
+const strLength: number = svalue.length;
+console.log(strLength);
+
+// 型アサーション2
+const nums = 123;
+const str: string = nums as unknown as string;
+
+// import fs from "fs";
+// import path from "path";
+
+// console.log("読み込み開始");
+// const filePath = path.join(__dirname, "user.txt"); // このファイルと同じディレクトリに user.txt を置く
+// fs.readFile(filePath, "binary", (err, data) => {
+//   if (err) {
+//     console.error(err);
+//   }
+//   console.log(data);
+// });
+
+// console.log("読み込み開始後?");
+
+// 同期型のコールバック関数
+const numbersX = [1, 2, 3];
+const doubles = numbersX.map((n: number) => {
+  n * 2;
+});
+console.log(doubles);
+
+function display(x: number) {
+  console.log(x);
 }
 
+function request1(display: (x: number) => void) {
+  setTimeout(() => {
+    display(1);
+  }, 1000);
+}
+
+request1(display);
