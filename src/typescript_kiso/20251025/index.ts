@@ -56,3 +56,51 @@ async function test2() {
 
 test2();
 console.log("C");
+
+class Person2 {
+  name: string;
+
+  greet(name: string) {
+    return `Hello,${name}`;
+  }
+
+  constructor(name: string) {
+    this.name = name;
+  }
+}
+
+const person10 = new Person2("Mike");
+console.log(person10);
+
+class Point {
+  x: number;
+  y: number;
+
+  constructor(x: number, y: number) {
+    this.x = x;
+    this.y = y;
+  }
+}
+
+const point = new Point(10, 22);
+
+abstract class Food {
+  constructor(protected name: string, protected calorie: number) {}
+
+  showDebug() {
+    console.log(`name = ${this.name} `);
+    console.log(`calorie = ${this.calorie}kcal `);
+  }
+  abstract keepRefrigerated(): boolean;
+}
+
+class Meat extends Food {
+  keepRefrigerated(): boolean {
+    return true;
+  }
+}
+
+const saori = new Map<string, number>();
+saori.set("a", 3);
+console.log(saori);
+console.log(typeof saori === "object");
